@@ -1,8 +1,8 @@
-def palindromeCheck(word:str,tail1=0,tail2=1):
-    if word[tail1]!=word[-tail2]:
+def palindromeCheck(word:str,tail=True):
+    if not tail:
         return ("Not a palindrome")
-    elif tail2 == len(word)//2:
+    elif not word:
         return("is a palindrome")
     else: 
-        return palindromeCheck(word,tail1+1,tail2+1)
+        return palindromeCheck(word[1:-1], word[0]==word[-1])
 print(palindromeCheck("tacocat"))
