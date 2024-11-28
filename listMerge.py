@@ -17,8 +17,7 @@ def listMerge(list_a,list_b):
                 if not(list_a):
                     return helper(False,list_b,0,tail_b)
                 else:
-                    num = list_a[0]
-                    return helper(list_a[1:],list_b,merged,num,tail_b)
+                    return helper(list_a[1:],list_b,merged,list_a[0],tail_b)
             else:
                 return helper(list_a[1:],list_b,merged,list_a[1],tail_b)
         else:
@@ -27,8 +26,7 @@ def listMerge(list_a,list_b):
                 if not(list_b):
                     return helper(list_a,False,tail_a,0)
                 else:
-                    num = list_b[0]
-                    return helper(list_a,list_b[1:],merged,tail_a,num)
+                    return helper(list_a,list_b[1:],merged,tail_a,list_b[0])
             else:
                 return helper(list_a,list_b[1:],merged,tail_a,list_b[1])
     if not(list_a and list_b):
@@ -42,5 +40,5 @@ def listMerge(list_a,list_b):
     else:
         return helper(list_a,list_b,merged,list_a[0],list_b[0])
 data1 =[2,4,6,7,8,9,10,90,281,292,300]
-data2 = [1,2,4,5,7,12,15,34]
+data2 = [1,2,4,5,7,12,15,34,400]
 print(listMerge(data1,data2))
